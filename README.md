@@ -3,10 +3,10 @@ pynifpga
 
 Python wrapper for the National Instruments FPGA C interface.
 
-This wrapper is based on boost-python and is tested to run on Windows 7 with NI-SCOPE 4.1.
+This wrapper is based on boost-python and is tested to run on Windows 7 with the NI-FPGA C API v14.0.
 I used Microsoft Visual Studio Express 2013 to compile (project files included).
 
-The wrapper is made to wrap as closely as possible the functions provided by the NI-FPGA C interface. The project is made of a C-to-C++ stage followed by a C++-to-Python stage (I find it more readable in this way).
+The wrapper is made to wrap as closely as possible the functions provided by the NI-FPGA C API. The project is made of a C-to-C++ stage followed by a C++-to-Python stage (I find it more readable in this way).
 
 Architecture
 ============
