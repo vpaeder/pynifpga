@@ -8,6 +8,35 @@ I used Microsoft Visual Studio Express 2013 to compile (project files included).
 
 The wrapper is made to wrap as closely as possible the functions provided by the NI-FPGA C API. The project is made of a C-to-C++ stage followed by a C++-to-Python stage (I find it more readable in this way).
 
+How to install
+==============
+
+While, in principle, it should be possible to compile this wrapper on any system with available NI libraries, I only tested it with Windows 7 and Microsoft Visual Studio Express 2013. Here is what I did:
+
+* Install [the National Instruments NI-FPGA drivers](http://www.ni.com/gate/gb/GB_EVALTLKTEMBDES/US) including the C APIs
+* Not strictly required to run this module, but necessary to compile FPGA bitfiles with Labview, are the [Xilinx compile tools](http://www.ni.com/download/labview-fpga-module-2014/4845/en/)
+* Install the [NI-FPGA C API](http://www.ni.com/white-paper/9036/en/) compatible with the version of Labview and the driver you installed.
+* Install [Python](http://www.python.org).
+* Install [boost](http://www.boost.org). I took the [Windows binaries](http://sourceforge.net/projects/boost/).
+* Install [Microsoft Visual Studio Express](http://visualstudio.com). It is free to use but a registration is required.
+
+Once you have done that, open the Visual Studio project file. You may need to adjust the include and lib paths before building.
+In my case, the required include paths were:
+* For Python: `C:\Python27\include`
+* For boost: `C:\local\boost_1_56_0`
+
+And the required library paths were:
+* For Python: `C:\Python27\libs`
+* For boost: `C:\local\boost_1_56_0\lib32-msvc-12.0`
+
+Change this according to your installation paths.
+
+For the National Instruments drivers, you need to generate some files with the *NI-FPGA C API Generator* (installed with the NI-FPGA C API). Copy the files **NiFpga.c** and **NiFpga.h** to the source directory of the Visual Studio project.
+
+Use the *Build* command of Visual Studio. You should get a *.pyd* file in the *Release* folder. Copy it somewhere where your Python script can find it.
+
+Should you try with a different system and/or compiler, I am interested in your experience.
+
 Architecture
 ============
 
